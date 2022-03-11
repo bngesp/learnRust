@@ -110,15 +110,21 @@ struct Color {
     blue: u8,
 }
 
+impl Display for Color {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        write!(f, "RGB({r}, {g}, {b})", r=self.red, g=self.green, b=self.blue)?;
+        write!(f, " {b:o}", b=self.blue)
+    }
+}
 
-fn main() {
-    for city in [
+fn show_formatting() {
+/*    for city in [
         City { name: "Dublin", lat: 53.347778, lon: -6.259722 },
         City { name: "Oslo", lat: 59.95, lon: 10.75 },
         City { name: "Vancouver", lat: 49.25, lon: -123.1 },
     ].iter() {
         println!("{}", *city);
-    }
+    }*/
     for color in [
         Color { red: 128, green: 255, blue: 90 },
         Color { red: 0, green: 3, blue: 254 },
@@ -126,12 +132,13 @@ fn main() {
     ].iter() {
         // Switch this to use {} once you've added an implementation
         // for fmt::Display.
-        println!("{:?}", *color);
+        println!("{}", *color);
     }
 }
 
 
 fn main(){
-    show_list();
-    show_complex();
+    //show_list();
+    //show_complex();
+    show_formatting();
 }
