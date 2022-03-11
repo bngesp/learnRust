@@ -1,11 +1,6 @@
-// fn main() {
-//     // println!("Hello, world!");
-//     let a = 9;
 
-//     println!("la valeur de a est {}", a)
-//     a = a + 1;
-
-// }
+pub mod primitives;
+pub mod hello_world;
 
 // The wasm-pack uses wasm-bindgen to build and generate JavaScript binding file.
 // Import the wasm-bindgen crate.
