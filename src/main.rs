@@ -1,33 +1,31 @@
 
 
 fn main (){
-/*    for i in 1..100 {
-        if i % 2 == 0 {  println!("je {value} suis un nombre paire", value=i)}
-        if i % 15 == 0 {
-            println!("fizzbuzz");
-        } else if i % 3 == 0 {
-            println!("fizz");
-        } else if i % 5 == 0 {
-            println!("buzz");
-        } else {
-            println!("{}", i);
-        }
+    let number = 2;
+    // TODO ^ Try different values for `number`
+
+    println!("Tell me about {}", number);
+    match number {
+        // Match a single value
+        1 => println!("One!"),
+        // Match several values
+        2 | 3 | 5 | 7 | 11 => println!("This is a prime"),
+        // TODO ^ Try adding 13 to the list of prime values
+        // Match an inclusive range
+        13..=19 => println!("A teen"),
+        // Handle the rest of cases
+        _ => println!("Ain't special"),
+        // TODO ^ Try commenting out this catch-all arm
     }
 
-    for a in 1..10 {
-        println!("a={}", a);
-    }
-*/
+    let boolean = true;
+    // Match is an expression too
+    let binary:i8 = match boolean {
+        // The arms of a match must cover all the possible values
+        false => 0,
+        true => 1,
+        // TODO ^ Try commenting out one of these arms
+    };
 
-    let mut names = vec!["Bob", "Frank", "Ferris"];
-
-    for name in names.iter_mut() {
-        match name {
-            &mut "Ferris" => println!("There is a rustacean among us!"),
-            // TODO ^ Try deleting the & and matching just "Ferris"
-            _ => println!("Hello {}", name),
-        }
-    }
-
-    println!("names: {:?}", names);
+    println!("{} -> {}", boolean, binary);
 }
