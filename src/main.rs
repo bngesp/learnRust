@@ -1,31 +1,35 @@
+// Our example enum
+enum Foo {
+    Bar,
+    Baz,
+    Qux(u32)
+}
 
+fn main() {
+    // Create example variables
+    let a = Foo::Bar;
+    let b = Foo::Baz;
+    let c = Foo::Qux(100);
 
-fn main (){
-    let number = 2;
-    // TODO ^ Try different values for `number`
-
-    println!("Tell me about {}", number);
-    match number {
-        // Match a single value
-        1 => println!("One!"),
-        // Match several values
-        2 | 3 | 5 | 7 | 11 => println!("This is a prime"),
-        // TODO ^ Try adding 13 to the list of prime values
-        // Match an inclusive range
-        13..=19 => println!("A teen"),
-        // Handle the rest of cases
-        _ => println!("Ain't special"),
-        // TODO ^ Try commenting out this catch-all arm
+    // Variable a matches Foo::Bar
+    if let Foo::Bar = a {
+        println!("a is foobar");
     }
 
-    let boolean = true;
-    // Match is an expression too
-    let binary:i8 = match boolean {
-        // The arms of a match must cover all the possible values
-        false => 0,
-        true => 1,
-        // TODO ^ Try commenting out one of these arms
-    };
+    // Variable b does not match Foo::Bar
+    // So this will print nothing
+    if let Foo::Bar = b {
+        println!("b is foobar");
+    }
 
-    println!("{} -> {}", boolean, binary);
+    // Variable c matches Foo::Qux which has a value
+    // Similar to Some() in the previous example
+    if let Foo::Qux(value) = c {
+        println!("c is {}", value);
+    }
+
+    // Binding also works with `if let`
+    if let Foo::Qux(value @ 100) = c {
+        println!("c is one hundred");
+    }
 }
