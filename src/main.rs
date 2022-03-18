@@ -1,17 +1,26 @@
+// `F` must be gen
+
+
+// Define a function which takes a generic `F` argument
+// bounded by `Fn`, and calls it
+fn call_me<F: FnOnce()>(f: F) {
+    f();
+}
+
+fn is_odd(n: u32) -> bool {
+    n % 2 == 1
+}
+
+// Define a wrapper function satisfying the `Fn` bound
+fn function() {
+    println!("I'm a function!");
+}
+
 fn main() {
-    fn function(i: i32) -> i32 { i +1}
-    println!("la valeu de la fontion {}", function(32));
+    println!("Find the sum of all the squared odd numbers under 1000");
+    let upper = 1000;
 
-    let closure_annotated = |i: i32| -> i32 { i + 1 };
-    let closure_inferred  = |i| i + 1  ;
-    let i = 1;
-    // Call the function and closures.
-    println!("function: {}", function(i));
-    println!("closure_annotated: {}", closure_annotated(i));
-    println!("closure_inferred: {}", closure_inferred(i));
-
-    // A closure taking no arguments which returns an `i32`.
-    // The return type is inferred.
-    let one = || "juste une valeur";
-    println!("closure returning one: {}", one());
+    let sum_of_squared_odd_numbers: u32 =
+        (0..).
+    println!("functional style: {}", sum_of_squared_odd_numbers);
 }
